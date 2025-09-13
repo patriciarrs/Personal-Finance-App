@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss"
+  ],
+  "plugins": ["stylelint-scss", "stylelint-order"],
+  "rules": {
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "max-nesting-depth": [0, {}],
+    "color-named": "never",
+    "selector-max-id": 0,
+    "declaration-no-important": true,
+    "order/properties-alphabetical-order": true
+  }
+}
