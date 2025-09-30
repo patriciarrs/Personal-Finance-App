@@ -1,10 +1,13 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
 # Compiled output
-/dist
 /tmp
-/out-tsc
 /bazel-out
+
+# Angular build output
+/dist
+/.angular
+/out-tsc
 
 # Node
 /node_modules
@@ -19,6 +22,7 @@ yarn-error.log
 *.launch
 .settings/
 *.sublime-workspace
+/.idea
 
 # Visual Studio Code
 .vscode/*
@@ -28,15 +32,39 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
+# Logs
+lerna-debug.log
+pnpm-debug.log*
+*.log
 /libpeerconnection.log
 testem.log
-/typings
 
 # System files
 .DS_Store
 Thumbs.db
+
+# Coverage and test outputs
+/coverage
+/.nyc_output
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Temporary files
+/.sass-cache
+/connect.lock
+/typings
+/*.iml
+*.swp
+*.swo
+
+# ESLint, Prettier, Stylelint caches
+.eslintcache
+.stylelintcache
+.prettier-cache
+.sass-cache/
+
+# Husky internal
+.husky/_/
