@@ -51,7 +51,7 @@ module.exports = tseslint.config(
         'error',
         {
           type: 'element',
-          prefix: 'pfa',
+          prefix: ['app', 'pfa'],
           style: 'kebab-case',
         },
       ],
@@ -82,40 +82,36 @@ module.exports = tseslint.config(
         },
       ],
       '@typescript-eslint/no-shadow': 'warn',
-    },
 
-    // JavaScript best practices
-    eqeqeq: 'error',
-    complexity: ['error', 20],
-    curly: 'error',
-    'guard-for-in': 'error',
-    'max-classes-per-file': ['error', 1],
-    'max-len': [
-      'warn',
-      {
-        code: 120,
-        comments: 160,
-      },
-    ],
-    'max-lines': ['error', 400], // keep files small
-    'no-bitwise': 'error',
-    'no-console': 'off',
-    'no-new-wrappers': 'error',
-    'no-useless-concat': 'error',
-    'no-var': 'error',
-    'no-restricted-syntax': 'off',
-    'no-shadow': 'error',
-    'one-var': ['error', 'never'],
-    'prefer-arrow-callback': 'error',
-    'prefer-const': 'error',
-    'sort-imports': [
-      'error',
-      {
-        ignoreCase: true,
-        ignoreDeclarationSort: true,
-        allowSeparatedGroups: true,
-      },
-    ],
+      // JavaScript best practices
+      complexity: ['error', 20],
+      'guard-for-in': 'error',
+      'max-classes-per-file': ['error', 1],
+      'max-len': [
+        'warn',
+        {
+          code: 120,
+          comments: 160,
+        },
+      ],
+      'max-lines': ['error', 400], // keep files small
+      'no-bitwise': 'error',
+      'no-console': 'off',
+      'no-new-wrappers': 'error',
+      'no-useless-concat': 'error',
+      'no-restricted-syntax': 'off',
+      'no-shadow': 'error',
+      'one-var': ['error', 'never'],
+      'prefer-arrow-callback': 'error',
+      'sort-imports': [
+        'error',
+        {
+          ignoreCase: true,
+          ignoreDeclarationSort: true,
+          allowSeparatedGroups: true,
+        },
+      ],
+    },
   },
   {
     // Everything in this config object targets our HTML files (both external template files,
@@ -134,6 +130,7 @@ module.exports = tseslint.config(
         {
           alphabetical: true,
           order: [
+            'STRUCTURAL_DIRECTIVE', // deprecated, use @if and @for instead
             'TEMPLATE_REFERENCE', // e.g. `<input #inputRef>`
             'ATTRIBUTE_BINDING', // e.g. `<input required>`, `id="3"`
             'INPUT_BINDING', // e.g. `[id]="3"`, `[attr.colspan]="colspan"`,
