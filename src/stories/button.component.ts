@@ -1,47 +1,36 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 
 @Component({
-  selector: 'storybook-button',
+  selector: 'pfa-button',
   standalone: true,
   imports: [CommonModule],
-  template: ` <button
-    type="button"
-    [ngClass]="classes"
-    [ngStyle]="{ 'background-color': backgroundColor }"
-    (click)="onClick.emit($event)"
-  >
-    {{ label }}
-  </button>`,
+  templateUrl: './button.component.html',
   styleUrls: ['./button.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
   /** Is this the principal call to action on the page? */
-  @Input()
-  primary = false;
+  readonly primary = input(false);
 
   /** What background color to use */
-  @Input()
-  backgroundColor?: string;
+  readonly backgroundColor = input<string>();
 
   /** How large should the button be? */
-  @Input()
-  size: 'small' | 'medium' | 'large' = 'medium';
+  readonly size = input<'small' | 'medium' | 'large'>('medium');
 
   /**
    * Button contents
    *
    * @required
    */
-  @Input()
-  label = 'Button';
+  readonly label = input('Button');
 
   /** Optional click handler */
-  @Output()
-  onClick = new EventEmitter<Event>();
+  readonly handleClick = output<Event>();
 
   get classes(): string[] {
-    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+    const mode = this.primary() ? 'storybook-button--primary' : 'storybook-button--secondary';
 
     return ['storybook-button', `storybook-button--${this.size}`, mode];
   }
