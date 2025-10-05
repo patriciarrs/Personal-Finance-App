@@ -14,7 +14,9 @@
     "i18n:extract": "transloco-keys-manager extract",
     "i18n:find": "transloco-keys-manager find",
     "transloco:optimize": "transloco-optimize dist/my-app/assets/i18n",
-    "build:prod": "ng build --prod && npm run transloco:optimize"
+    "build:prod": "ng build --prod && npm run transloco:optimize",
+    "storybook": "ng run personal-finance-app:storybook",
+    "build-storybook": "ng run personal-finance-app:build-storybook"
   },
   "prettier": {
     "printWidth": 100,
@@ -50,18 +52,24 @@
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "^20.3.4",
     "@angular/build": "^20.3.3",
     "@angular/cli": "^20.3.3",
     "@angular/compiler-cli": "^20.3.3",
+    "@compodoc/compodoc": "^1.1.31",
     "@eslint/js": "^9.35.0",
     "@jsverse/transloco-keys-manager": "^7.0.2",
     "@jsverse/transloco-optimize": "^8.0.2",
     "@jsverse/transloco-validator": "^8.0.2",
+    "@storybook/addon-docs": "^9.1.10",
+    "@storybook/addon-onboarding": "^9.1.10",
+    "@storybook/angular": "^9.1.10",
     "@types/jasmine": "~5.1.0",
     "angular-eslint": "20.2.0",
     "eslint": "^9.33.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-storybook": "^9.1.10",
     "husky": "^9.1.7",
     "jasmine-core": "~5.9.0",
     "karma": "~6.4.0",
@@ -71,6 +79,7 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "lint-staged": "^16.1.6",
     "prettier": "^3.6.2",
+    "storybook": "^9.1.10",
     "stylelint": "^16.24.0",
     "stylelint-config-standard-scss": "^16.0.0",
     "stylelint-order": "^7.0.0",

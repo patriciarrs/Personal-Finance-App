@@ -68,3 +68,7 @@ Thumbs.db
 
 # Husky internal
 .husky/_/
+
+# Storybook
+*storybook.log
+storybook-static
