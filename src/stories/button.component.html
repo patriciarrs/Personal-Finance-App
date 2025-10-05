@@ -1,8 +1,8 @@
 <button
   type="button"
   [ngClass]="classes"
-  [ngStyle]="{ 'background-color': backgroundColor }"
+  [ngStyle]="{ 'background-color': backgroundColor() }"
   (click)="handleClick.emit($event)"
 >
-  {{ label }}
+  {{ label() }}
 </button>
