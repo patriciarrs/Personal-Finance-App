@@ -31,7 +31,10 @@
   "lint-staged": {
     "*.{ts,js,html}": "eslint --cache --fix",
     "*.scss": "stylelint --fix",
-    "*.{ts,js,html,scss,json,md}": "prettier --write"
+    "*.{ts,js,html,scss,json,md}": "prettier --write",
+    "src/assets/i18n/*.json": [
+      "transloco-validator"
+    ]
   },
   "private": true,
   "dependencies": {
@@ -53,6 +56,7 @@
     "@eslint/js": "^9.35.0",
     "@jsverse/transloco-keys-manager": "^7.0.2",
     "@jsverse/transloco-optimize": "^8.0.2",
+    "@jsverse/transloco-validator": "^8.0.2",
     "@types/jasmine": "~5.1.0",
     "angular-eslint": "20.2.0",
     "eslint": "^9.33.0",
