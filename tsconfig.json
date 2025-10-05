@@ -30,5 +30,7 @@
     {
       "path": "./tsconfig.spec.json"
     }
-  ]
+  ],
+  "resolveJsonModule": true,
+  "esModuleInterop": true
 }
