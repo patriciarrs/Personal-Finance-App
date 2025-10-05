@@ -116,10 +116,7 @@ module.exports = tseslint.config(
   },
   {
     files: ['**/*.stories.@(ts|js|jsx|tsx)'],
-    plugins: {
-      storybook,
-    },
-    extends: [storybook.configs.recommended],
+    extends: [...storybook.configs['flat/recommended']],
   },
   {
     // Everything in this config object targets our HTML files (both external template files,
