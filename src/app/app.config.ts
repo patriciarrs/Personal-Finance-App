@@ -24,6 +24,9 @@ export const appConfig: ApplicationConfig = {
         // Remove this option if your application doesn't support changing language in runtime.
         reRenderOnLangChange: true,
         prodMode: !isDevMode(),
+        flatten: {
+          aot: !isDevMode(),
+        },
       },
       loader: TranslocoHttpLoader,
     }),
