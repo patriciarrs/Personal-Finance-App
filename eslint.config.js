@@ -1,6 +1,3 @@
-// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
-// import storybook from "eslint-plugin-storybook";
-
 // @ts-check
 
 // Allows us to bring in the recommended core rules from eslint itself
@@ -14,6 +11,7 @@ const angular = require('angular-eslint');
 
 const eslintConfigPrettier = require('eslint-config-prettier/flat');
 const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended');
+const storybook = require('eslint-plugin-storybook');
 
 // Export our config array, which is composed together thanks to the typed utility function from typescript-eslint
 module.exports = tseslint.config(
@@ -115,6 +113,13 @@ module.exports = tseslint.config(
         },
       ],
     },
+  },
+  {
+    files: ['**/*.stories.@(ts|js|jsx|tsx)'],
+    plugins: {
+      storybook,
+    },
+    extends: [storybook.configs.recommended],
   },
   {
     // Everything in this config object targets our HTML files (both external template files,
