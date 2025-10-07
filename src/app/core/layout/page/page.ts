@@ -1,18 +1,16 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
-import { HeaderComponent } from './header.component';
-import type { User } from './user';
+import { Header } from '../header/header';
+import { User } from '../../../shared/models/user';
 
 @Component({
-  standalone: true,
-  imports: [CommonModule, HeaderComponent],
-  templateUrl: './page.component.html',
-  styleUrls: ['./page.scss'],
   selector: 'pfa-page',
+  imports: [Header],
+  templateUrl: './page.html',
+  styleUrl: './page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PageComponent {
+export class Page {
   user: User | null = null;
 
   doLogout(): void {
