@@ -1,4 +1,4 @@
-.storybook-header {
+.header {
   align-items: center;
   border-bottom: 1px solid rgb(0 0 0 / 10%);
   display: flex;
@@ -7,12 +7,12 @@
   padding: 15px 20px;
 }
 
-.storybook-header svg {
+.header svg {
   display: inline-block;
   vertical-align: top;
 }
 
-.storybook-header h1 {
+.header h1 {
   display: inline-block;
   font-size: 20px;
   font-weight: 700;
@@ -21,11 +21,11 @@
   vertical-align: top;
 }
 
-.storybook-header button + button {
+.header button + button {
   margin-left: 10px;
 }
 
-.storybook-header .welcome {
+.header .welcome {
   color: #333;
   font-size: 14px;
   margin-right: 10px;

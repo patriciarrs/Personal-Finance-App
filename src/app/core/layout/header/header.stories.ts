@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import { fn } from 'storybook/test';
 
-import { HeaderComponent } from './header.component';
+import { Header } from './header';
 
-const meta: Meta<HeaderComponent> = {
+const meta: Meta<Header> = {
   title: 'Example/Header',
-  component: HeaderComponent,
+  component: Header,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
   parameters: {
@@ -20,7 +20,7 @@ const meta: Meta<HeaderComponent> = {
 };
 
 export default meta;
-type Story = StoryObj<HeaderComponent>;
+type Story = StoryObj<Header>;
 
 export const LoggedIn: Story = {
   args: {
