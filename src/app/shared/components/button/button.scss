@@ -1,4 +1,4 @@
-.storybook-button {
+.button {
   border: 0;
   border-radius: 3em;
   cursor: pointer;
@@ -8,28 +8,32 @@
   line-height: 1;
 }
 
-.storybook-button--primary {
+.button--primary {
   background-color: #555ab9;
   color: #fff;
 }
 
-.storybook-button--secondary {
+.button--secondary {
   background-color: transparent;
   box-shadow: rgb(0 0 0 / 15%) 0 0 0 1px inset;
   color: #333;
 }
 
-.storybook-button--small {
+.button--small {
   font-size: 12px;
   padding: 10px 16px;
 }
 
-.storybook-button--medium {
+.button--medium {
   font-size: 14px;
   padding: 11px 20px;
 }
 
-.storybook-button--large {
+.button--large {
   font-size: 16px;
   padding: 12px 24px;
+}
+
+.button--disabled {
+  // TODO
 }

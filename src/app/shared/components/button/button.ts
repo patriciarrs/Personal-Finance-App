@@ -1,15 +1,13 @@
-import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'pfa-button',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './button.component.html',
-  styleUrls: ['./button.scss'],
+  imports: [],
+  templateUrl: './button.html',
+  styleUrl: './button.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ButtonComponent {
+export class Button {
   /** Is this the principal call to action on the page? */
   readonly primary = input(false);
 
@@ -24,14 +22,21 @@ export class ButtonComponent {
    *
    * @required
    */
-  readonly label = input('Button');
+  readonly label = input('');
+
+  /** Is the button disabled? */
+  readonly disabled = input(false);
+
+  /** Button type */
+  readonly type = input<'button' | 'submit' | 'reset'>('button');
 
   /** Optional click handler */
   readonly handleClick = output<Event>();
 
   get classes(): string[] {
-    const mode = this.primary() ? 'storybook-button--primary' : 'storybook-button--secondary';
+    const mode = this.primary() ? 'button--primary' : 'button--secondary';
+    const disabled = this.disabled() ? 'button--disabled' : '';
 
-    return ['storybook-button', `storybook-button--${this.size()}`, mode];
+    return ['button', `button--${this.size()}`, mode, disabled];
   }
 }
