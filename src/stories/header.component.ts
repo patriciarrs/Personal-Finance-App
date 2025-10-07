@@ -8,7 +8,7 @@ import type { User } from './user';
   standalone: true,
   imports: [CommonModule, ButtonComponent],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.css'],
+  styleUrls: ['./header.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'pfa-header',
 })

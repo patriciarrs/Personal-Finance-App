@@ -8,7 +8,7 @@ import type { User } from './user';
   standalone: true,
   imports: [CommonModule, HeaderComponent],
   templateUrl: './page.component.html',
-  styleUrls: ['./page.css'],
+  styleUrls: ['./page.scss'],
   selector: 'pfa-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

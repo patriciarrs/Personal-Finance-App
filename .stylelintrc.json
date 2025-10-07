@@ -8,6 +8,12 @@
     "color-named": "never",
     "selector-max-id": 0,
     "declaration-no-important": true,
-    "order/properties-alphabetical-order": true
+    "order/properties-alphabetical-order": true,
+    "selector-class-pattern": [
+      "^[a-z0-9]+(?:-[a-z0-9]+)*(?:__(?:[a-z0-9]+(?:-[a-z0-9]+)*))?(?:--(?:[a-z0-9]+(?:-[a-z0-9]+)*))?$",
+      {
+        "message": "Expected class selector to follow BEM convention (block__element--modifier)"
+      }
+    ]
   }
 }
