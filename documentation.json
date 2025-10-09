@@ -456,6 +456,84 @@
       "stylesData": "",
       "extends": [],
       "templateData": "<article>\n  <pfa-header\n    [user]=\"user\"\n    (handleCreateAccount)=\"doCreateAccount()\"\n    (handleLogin)=\"doLogin()\"\n    (handleLogout)=\"doLogout()\"\n  />\n\n  <section class=\"page\">\n    <h2>Pages in Storybook</h2>\n\n    <p>\n      We recommend building UIs with a\n      <a href=\"https://componentdriven.org\" rel=\"noopener noreferrer\" target=\"_blank\">\n        <strong>component-driven</strong>\n      </a>\n      process starting with atomic components and ending with pages.\n    </p>\n\n    <p>\n      Render pages with mock data. This makes it easy to build and review page states without\n      needing to navigate to them in your app. Here are some handy patterns for managing page data\n      in Storybook:\n    </p>\n\n    <ul>\n      <li>\n        Use a higher-level connected component. Storybook helps you compose such data from the\n        \"args\" of child component stories\n      </li>\n      <li>\n        Assemble data in the page component from your services. You can mock these services out\n        using Storybook.\n      </li>\n    </ul>\n\n    <p>\n      Get a guided tutorial on component-driven development at\n      <a href=\"https://storybook.js.org/tutorials/\" rel=\"noopener noreferrer\" target=\"_blank\">\n        Storybook tutorials\n      </a>\n      . Read more in the\n      <a href=\"https://storybook.js.org/docs\" rel=\"noopener noreferrer\" target=\"_blank\"> docs </a>\n      .\n    </p>\n\n    <div class=\"tip-wrapper\">\n      <span class=\"tip\">Tip</span> Adjust the width of the canvas with the\n      <svg height=\"10\" viewBox=\"0 0 12 12\" width=\"10\" xmlns=\"http://www.w3.org/2000/svg\">\n        <g fill=\"none\" fillRule=\"evenodd\">\n          <path\n            d=\"M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z\"\n            fill=\"#999\"\n            id=\"a\"\n          />\n        </g>\n      </svg>\n      Viewports addon in the toolbar\n    </div>\n  </section>\n</article>\n"
+    },
+    {
+      "name": "Task",
+      "id": "component-Task-cec589313790ec8fef7e878fb7547901089b658bf65e6ca55dedfc9afb1f4c3205b7d5e31fbd76569e124b4bd8fab136b80a3fe18cf1e5e7633bd432784717a0",
+      "file": "src/app/shared/components/task/task.ts",
+      "changeDetection": "ChangeDetectionStrategy.OnPush",
+      "encapsulation": [],
+      "entryComponents": [],
+      "inputs": [],
+      "outputs": [],
+      "providers": [],
+      "selector": "pfa-task",
+      "styleUrls": [],
+      "styles": [],
+      "templateUrl": ["./task.html"],
+      "viewProviders": [],
+      "hostDirectives": [],
+      "inputsClass": [
+        {
+          "name": "task",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "TaskType",
+          "indexKey": "",
+          "optional": false,
+          "description": "<p>The shape of the task object</p>\n",
+          "line": 16,
+          "rawdescription": "\n\nThe shape of the task object\n",
+          "modifierKind": [148],
+          "required": false
+        }
+      ],
+      "outputsClass": [
+        {
+          "name": "handleArchiveTask",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "string",
+          "indexKey": "",
+          "optional": false,
+          "description": "<p>Event handler for archiving tasks</p>\n",
+          "line": 26,
+          "rawdescription": "\n\nEvent handler for archiving tasks\n",
+          "modifierKind": [148],
+          "required": false
+        },
+        {
+          "name": "handlePinTask",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "string",
+          "indexKey": "",
+          "optional": false,
+          "description": "<p>Event handler for pinning tasks</p>\n",
+          "line": 21,
+          "rawdescription": "\n\nEvent handler for pinning tasks\n",
+          "modifierKind": [148],
+          "required": false
+        }
+      ],
+      "propertiesClass": [],
+      "methodsClass": [],
+      "deprecated": false,
+      "deprecationMessage": "",
+      "hostBindings": [],
+      "hostListeners": [],
+      "standalone": false,
+      "imports": [],
+      "description": "",
+      "rawdescription": "\n",
+      "type": "component",
+      "sourceCode": "import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';\n\nimport { TaskType } from '../../models/task-type';\n\n@Component({\n  selector: 'pfa-task',\n  imports: [],\n  templateUrl: './task.html',\n  styleUrl: './task.scss',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class Task {\n  /**\n   * The shape of the task object\n   */\n  readonly task = input<TaskType>();\n\n  /**\n   * Event handler for pinning tasks\n   */\n  readonly handlePinTask = output<string>();\n\n  /**\n   * Event handler for archiving tasks\n   */\n  readonly handleArchiveTask = output<string>();\n\n  /**\n   * @ignore\n   * Component method to trigger the onPin event\n   * @param id string\n   */\n  onPin(id: string): void {\n    this.handlePinTask.emit(id);\n  }\n\n  /**\n   * @ignore\n   * Component method to trigger the onArchive event\n   * @param id string\n   */\n  onArchive(id: string): void {\n    this.handleArchiveTask.emit(id);\n  }\n}\n",
+      "styleUrl": "./task.scss",
+      "assetsDirs": [],
+      "styleUrlsData": "",
+      "stylesData": "",
+      "extends": [],
+      "templateData": "<div class=\"list-item {{ task()?.state }}\">\n  <label\n    class=\"checkbox\"\n    for=\"checked-{{ task()?.id }}\"\n    [attr.aria-label]=\"'archiveTask-' + task()?.id\"\n  >\n    <input\n      id=\"checked-{{ task()?.id }}\"\n      name=\"checked-{{ task()?.id }}\"\n      type=\"checkbox\"\n      [defaultChecked]=\"task()?.state === 'TASK_ARCHIVED'\"\n      [disabled]=\"true\"\n      (click)=\"onArchive(task()!.id)\"\n    />\n  </label>\n  <label\n    class=\"title\"\n    for=\"title-{{ task()?.id }}\"\n    [attr.aria-label]=\"task()?.title + ''\"\n  >\n    <input\n      id=\"title-{{ task()?.id }}\"\n      name=\"title-{{ task()?.id }}\"\n      placeholder=\"Input title\"\n      type=\"text\"\n      [readonly]=\"true\"\n      [value]=\"task()?.title\"\n    />\n  </label>\n  @if(task()?.state !== 'TASK_ARCHIVED'){\n    <button\n      class=\"pin-button\"\n      type=\"button\"\n      [attr.aria-label]=\"'pinTask-' + task()?.id\"\n      (click)=\"onPin(task()!.id)\"\n    >\n      <span class=\"icon-star\"></span>\n    </button>\n  }\n</div>"
     }
   ],
   "modules": [],
@@ -516,6 +594,17 @@
       }
     ],
     "typealiases": [
+      {
+        "name": "TaskType",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "literal type",
+        "file": "src/app/shared/models/task-type.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 188
+      },
       {
         "name": "User",
         "ctype": "miscellaneous",
@@ -592,6 +681,19 @@
     },
     "groupedEnumerations": {},
     "groupedTypeAliases": {
+      "src/app/shared/models/task-type.ts": [
+        {
+          "name": "TaskType",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "literal type",
+          "file": "src/app/shared/models/task-type.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 188
+        }
+      ],
       "src/app/shared/models/user.ts": [
         {
           "name": "User",
@@ -613,7 +715,7 @@
     "children": []
   },
   "coverage": {
-    "count": 13,
+    "count": 17,
     "status": "low",
     "files": [
       {
@@ -671,6 +773,25 @@
         "coveragePercent": 87,
         "coverageCount": "7/8",
         "status": "very-good"
+      },
+      {
+        "filePath": "src/app/shared/components/task/task.ts",
+        "type": "component",
+        "linktype": "component",
+        "name": "Task",
+        "coveragePercent": 75,
+        "coverageCount": "3/4",
+        "status": "good"
+      },
+      {
+        "filePath": "src/app/shared/models/task-type.ts",
+        "type": "type alias",
+        "linktype": "miscellaneous",
+        "linksubtype": "typealias",
+        "name": "TaskType",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
       },
       {
         "filePath": "src/app/shared/models/user.ts",

@@ -1,0 +1,38 @@
+<div class="list-item {{ task()?.state }}">
+  <label
+    class="checkbox"
+    for="checked-{{ task()?.id }}"
+    [attr.aria-label]="'archiveTask-' + task()?.id"
+  >
+    <input
+      id="checked-{{ task()?.id }}"
+      name="checked-{{ task()?.id }}"
+      type="checkbox"
+      [defaultChecked]="task()?.state === 'TASK_ARCHIVED'"
+      [disabled]="true"
+      (click)="onArchive(task()!.id)"
+    />
+  </label>
+
+  <label class="title" for="title-{{ task()?.id }}" [attr.aria-label]="task()?.title + ''">
+    <input
+      id="title-{{ task()?.id }}"
+      name="title-{{ task()?.id }}"
+      placeholder="Input title"
+      type="text"
+      [readonly]="true"
+      [value]="task()?.title"
+    />
+  </label>
+
+  @if (task()?.state !== 'TASK_ARCHIVED') {
+    <button
+      class="pin-button"
+      type="button"
+      [attr.aria-label]="'pinTask-' + task()?.id"
+      (click)="onPin(task()!.id)"
+    >
+      <span class="icon-star"></span>
+    </button>
+  }
+</div>
